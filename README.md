@@ -36,3 +36,5 @@ Copy the last taken photo, to its parent folder
     last_file.copy_sync(camera.parent.full_path);
 
 If you want more info, I've written a rather large article on [codeproject](https://www.codeproject.com/Articles/1213684/External-Drives-Library-Part-Dealing-with-USB-Conn)
+
+Used in Phot-Awe.
