@@ -62,6 +62,7 @@ namespace external_drive_lib.monitor
                                 properties.Add(p.Name, p.Value.ToString());
                         result.Add(properties);
                     }
+                    return result;
                 } catch {
                     Thread.Sleep(100);
                 }

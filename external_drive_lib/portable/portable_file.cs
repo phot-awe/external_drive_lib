@@ -13,6 +13,7 @@ namespace external_drive_lib.portable
     {
         private FolderItem2 fi_;
         private portable_drive drive_;
+        private string cached_full_path_ = null;
         public portable_file(portable_drive drive, FolderItem2 fi) {
             drive_ = drive;
             fi_ = fi;
@@ -28,7 +29,15 @@ namespace external_drive_lib.portable
 
         public IFolder folder => new portable_folder(drive_, (fi_.Parent as Folder2).Self);
 
-        public string full_path => drive_.parse_portable_path(fi_);
+        public string full_path {
+            get {
+                if (cached_full_path_ != null)
+                    return cached_full_path_;
+                cached_full_path_ = drive_.parse_portable_path(fi_);
+                return cached_full_path_;
+            }
+        }
+        
 
         public bool exists {
             get {
@@ -68,6 +77,10 @@ namespace external_drive_lib.portable
                     return DateTime.MinValue;
                 }
             }
+        }
+
+        public DateTime last_write_time_utc {
+            get { return last_write_time.ToUniversalTime(); }
         }
 
         public void copy_async(string dest_path) {

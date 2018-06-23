@@ -37,6 +37,7 @@ namespace external_drive_lib.windows
 
         public long size => new FileInfo(full_path).Length;
         public DateTime last_write_time => new FileInfo(full_path).LastWriteTime;
+        public DateTime last_write_time_utc => new FileInfo(full_path).LastWriteTimeUtc;
 
         public void copy_async(string dest_path) {
             var dest = drive_root.inst.parse_folder(dest_path) as IFolder2;

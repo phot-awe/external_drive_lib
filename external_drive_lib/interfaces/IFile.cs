@@ -19,6 +19,7 @@ namespace external_drive_lib.interfaces {
 
         long size { get; }
         DateTime last_write_time { get; }
+        DateTime last_write_time_utc { get; }
 
         // note: dest_path can be to another external drive
         // throws if there's an error

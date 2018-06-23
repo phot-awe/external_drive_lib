@@ -1,4 +1,8 @@
 ﻿
+1.2.14
+- solved bug - find_objects returned empty collection all the time
+- return write_time_utc as well
+
 
 1.2.13
 - make sure no thread exception terminates the app using us
